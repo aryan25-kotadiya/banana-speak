@@ -1,8 +1,5 @@
-//input
-var username = prompt("give me user name.")
+var btntranslate = document.quarySelector("#btn-translate");
 
-//processing
-var welcomemassage = "this script is works" + username;
-
-//output
-alert(welcomemassage);
+btntranslate,addEventListener("click", function clickEventHandler(){
+    console.log("clicked!.")
+})
