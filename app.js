@@ -1,11 +1,10 @@
 var btntranslate = document.quarySelector("#btn-translate");
 var textinput = document.querySelector("#txt-input");
+var outputDiv = document.querySelector("#output");
 
-console.log(textInput)
 
 function clickHandler(){
-    console.log("clicked!");
-    console.log("input", txtInput.value);
+   outputDiv.innerText = "ugewuugewegdujgf" + textinput.ariaValueMax;
 };
 
 btntranslate.addEventlistener("click",clickHandler)
