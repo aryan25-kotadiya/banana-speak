@@ -4,7 +4,7 @@ var outputDiv = document.querySelector("#output");
 
 
 function clickHandler(){
-   outputDiv.innerText = "ugewuugewegdujgf" + textinput.ariaValueMax;
+   outputDiv.innerText = "ugewuugewegdujgf" + textinput.values;
 };
 
 btntranslate.addEventlistener("click",clickHandler)
