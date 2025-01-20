@@ -1,34 +1,38 @@
-var btntranslate = document.quarySelector("#btn-translate");
-var textinput = document.querySelector("#txt-input");
-var outputDiv = document.querySelector("#output");
+const express = require('express');
+const path = require('path');
 
-// var serverURL = "https://lessonfourapi.tanaypratap.repl.co./translate/yoda.json"
+const app = express();
+const port = 3000;
 
-var serverURL = "https://api.funtranslations.com/translate/yoda.json"
+// Middleware to parse JSON requests
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-function getTranslationURL(text){
-   return serverURL + "?" + "text=" + input
+// Function to transform text into banana speak
+function convertToBananaSpeak(text) {
+    return text
+        .replace(/[aeiouAEIOU]/g, 'banana')  // Replace vowels with 'banana'
+        .split(' ')
+        .map(word => {
+            // Add more rules here, for example making common words "banana-like"
+            if (word.toLowerCase() === 'hello') return 'bananalo';
+            if (word.toLowerCase() === 'good') return 'banood';
+            if (word.toLowerCase() === 'morning') return 'banorning';
+            return word;
+        })
+        .join(' ');
 }
 
-function erroeHandler(erroe){
-   console.log("error occured", erroe);
-   alert("something wrong with server. try after some time.")
-}
+// Route to handle banana speak conversion
+app.post('/banana-speak', (req, res) => {
+    const inputText = req.body.text;
+    
+    // Get transformed text
+    const bananaSpeak = convertToBananaSpeak(inputText);
+    
+    res.json({ bananaSpeak });
+});
 
-
-function clickHandler(){
-   //outputDiv.innerText = "ugewuugewegdujgf" + textinput.values;
-   var inputText = txtInput.value;   //taking input
-
-   //calling server for processing
-   fetch(getTranslationURL(text))
-   .then(responce => responce.json())
-   .then(json => {
-      var translatedText = json.contents.translated
-      outputDiv.innerText = translatedText;
-      })
-   .catch(erroeHandler)
-};
-
-btntranslate.addEventlistener("click",clickHandler)
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
