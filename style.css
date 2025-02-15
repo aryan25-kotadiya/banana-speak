@@ -1,81 +1,58 @@
+/* Apply a banana-themed background and center everything */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f3f4f6;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background-color: #fff8a5;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    color: #333;
 }
 
-.container {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-}
-
+/* Title styling */
 h1 {
-    font-size: 2rem;
-    color: #ff6600;
-    margin-bottom: 1.5rem;
-    font-family: 'Courier New', Courier, monospace;
+    color: #e6b800;
+    text-shadow: 2px 2px 5px #8d6b00;
 }
 
-textarea {
-    width: 100%;
-    height: 120px;
+/* Input and output box styling */
+textarea, #output {
+    width: 60%;
+    height: 10vh;
+    display: block;
+    margin: 1rem auto;
     padding: 1rem;
-    margin-bottom: 1rem;
-    border: 2px solid #ff6600;
-    border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 2px solid #e6b800;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific background colors */
+textarea {
+    background-color: #fffbe6;
     resize: none;
-    transition: border-color 0.3s ease;
-}
-
-textarea:focus {
-    border-color: #ff9933;
-    outline: none;
-}
-
-#btn-translate {
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-#btn-translate:hover {
-    background-color: #ff9933;
 }
 
 #output {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border: 2px solid #ff6600;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    font-family: 'Courier New', Courier, monospace;
-    color: #555;
+    background-color: #ffeb99;
 }
 
-.info {
-    font-size: 1rem;
-    margin-top: 1rem;
-    color: #888;
+/* Button styling */
+button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #e6b800;
 }
