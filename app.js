@@ -1,38 +1,26 @@
-const express = require('express');
-const path = require('path');
+var btnTranslated = document.querySelector("#btn-translate");
+var txtInput = decodeURIComponent.querySelector("#txt-input");
+var outputDiv = document.querySelector("#output");
 
-const app = express();
-const port = 3000;
+var serverURL = "https://api.funtranslations.com/translate/minion.json"
 
-// Middleware to parse JSON requests
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Function to transform text into banana speak
-function convertToBananaSpeak(text) {
-    return text
-        .replace(/[aeiouAEIOU]/g, 'banana')  // Replace vowels with 'banana'
-        .split(' ')
-        .map(word => {
-            // Add more rules here, for example making common words "banana-like"
-            if (word.toLowerCase() === 'hello') return 'bananalo';
-            if (word.toLowerCase() === 'good') return 'banood';
-            if (word.toLowerCase() === 'morning') return 'banorning';
-            return word;
-        })
-        .join(' ');
+function getTranslationURL(text){
+    return serverURL + "?" + "text=" + text
 }
 
-// Route to handle banana speak conversion
-app.post('/banana-speak', (req, res) => {
-    const inputText = req.body.text;
-    
-    // Get transformed text
-    const bananaSpeak = convertToBananaSpeak(inputText);
-    
-    res.json({ bananaSpeak });
-});
+function errorHandler(error){
+    console.log("error occured", errer );
+    alert("something wrong with server! plese try again after somr timr")
+}
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+
+function clickHandler(){
+    var inputText = txtInput.value;
+
+    fetch(getTranslationURL(inputText))
+    .then(responce => responce.json())
+    .then(json => console.log(json.content.translated))
+    .catch(errorHandler)
+};
+
+btnTranslated.addEventListener("click",clickHandler``)
