@@ -14,12 +14,13 @@ body {
 
 /* Title styling */
 h1 {
+
     color: #e6b800;
     text-shadow: 2px 2px 5px #8d6b00;
 }
 
 /* Input and output box styling */
-textarea, #output {
+.textarea, #output {
     width: 60%;
     height: 10vh;
     display: block;
@@ -32,7 +33,7 @@ textarea, #output {
 }
 
 /* Specific background colors */
-textarea {
+.textarea {
     background-color: #fffbe6;
     resize: none;
 }
@@ -42,7 +43,7 @@ textarea {
 }
 
 /* Button styling */
-button {
+.button {
     background-color: #ffcc00;
     border: none;
     padding: 10px 20px;
@@ -53,6 +54,11 @@ button {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
+.button:hover {
     background-color: #e6b800;
+}
+
+.about-center{
+    max-width: 600px;
+    margin: auto;
 }
